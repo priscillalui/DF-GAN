@@ -53,7 +53,7 @@ def sampling(text_encoder, netG, dataloader,device):
     model_dir = cfg.TRAIN.NET_G
     split_dir = 'valid'
     # Build and load the generator
-    netG.load_state_dict(torch.load('models/%s/netG.pth'%(cfg.CONFIG_NAME)))
+    netG.load_state_dict(torch.load('models/%s/netG.pth'%(cfg.CONFIG_NAME), map_location='cuda:0'))
     netG.eval()
 
     batch_size = cfg.TRAIN.BATCH_SIZE
